@@ -39,13 +39,13 @@ public class Factory {
         * linkedHasSet*/
         else if(opcion == 1)
         {
-            implementacion = new LinkedHashSet();
+            implementacion = new TreeSet();
         }
         /*Si se selecciona el numero 3, entonces se devuelve la implementacion
         * treeSet*/
         else if(opcion == 2)
         {
-            implementacion = new TreeSet();
+            implementacion = new LinkedHashSet();
         } 
         /*Se devuelve la implementacion deseada*/
         return implementacion;
