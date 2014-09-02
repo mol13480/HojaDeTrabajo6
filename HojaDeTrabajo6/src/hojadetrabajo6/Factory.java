@@ -17,9 +17,14 @@ import java.util.TreeSet;
  */
 public class Factory {
     Set implementacion; 
+
+    /**
+     *
+     */
     public Factory(){
     
     }
+    
     
     public Set<String> getSet(int opcion){
            
