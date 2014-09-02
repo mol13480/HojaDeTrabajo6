@@ -75,7 +75,10 @@ public class Control {
 			   "opcion 0");
         
         int dialogButton = JOptionPane.YES_NO_OPTION; 
-       
+        //si el usuario presiona cancelar
+        if (dialogButton==JOptionPane.NO_OPTION){
+            System.exit(0);
+        }
         while (dialogButton == JOptionPane.YES_OPTION){
             //si el usuario eligio desarrolladores de java 
             if (set==0){
