@@ -17,29 +17,34 @@ import java.util.TreeSet;
  */
 public class Factory {
     Set implementacion; 
+    public Factory(){
     
-    public Set<String> getSet(int seleccion){
-        Set<String> implementacion = null;        
+    }
+    
+    public Set<String> getSet(int opcion){
+           
         /*Si se selecciona el numero 1, entonces se devuelve la implementacion
         * hashSet*/
-        if (seleccion == 1)
+        if (opcion == 0)
         {
             implementacion =  new HashSet(); 
+           
         }
         /*Si se selecciona el numero 2, entonces se devuelve la implementacion
         * linkedHasSet*/
-        else if(seleccion == 2)
+        else if(opcion == 1)
         {
             implementacion = new LinkedHashSet();
         }
         /*Si se selecciona el numero 3, entonces se devuelve la implementacion
         * treeSet*/
-        else if(seleccion == 3)
+        else if(opcion == 2)
         {
             implementacion = new TreeSet();
         } 
         /*Se devuelve la implementacion deseada*/
         return implementacion;
+        
     }
 }
 

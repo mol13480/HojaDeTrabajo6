@@ -54,23 +54,13 @@ public class Control {
 			   new Object[] { "HashSet", "Hashtree","LinkedHashSet"},   // null para YES, NO y CANCEL
 			   "opcion 0");
         
-        switch (opcion){
-            case 0: 
-            case 1: 
-            case 2:
-            {
-                SetJava = factory.getSet(opcion);
-                SetWeb = factory.getSet(opcion);
-                SetCelulares = factory.getSet(opcion);
-                break;
-            }
-            default:{
-                //si el usuario ingresa algo incorrecto
-                JOptionPane.showMessageDialog(null, "Ingrese datos correctos");
-                //se cierra el programa 
-                System.exit(0); 
-            }     
+        if(opcion==0 || opcion==1 || opcion==2){
+           
+            SetJava = factory.getSet(opcion); 
+            SetWeb = factory.getSet(opcion); 
+            SetCelulares = factory.getSet(opcion); 
         }
+        
         
         //se le pregunta al usuario que desarrolladores quiere ingresar
         int set = JOptionPane.showOptionDialog(
@@ -88,31 +78,34 @@ public class Control {
         while (dialogButton == JOptionPane.YES_OPTION){
             //si el usuario eligio desarrolladores de java 
             if (set==0){
-                System.out.println("javaa"); 
                 String nombre = JOptionPane.showInputDialog("Ingrese el nombre"); 
                 SetJava.add(nombre);  
                
             }
             //si el usuario eligio desarrolladores web
             if (set==1){
-                System.out.println("weeb"); 
                 String nombre = JOptionPane.showInputDialog("Ingrese el nombre"); 
                 SetWeb.add(nombre);  
             }
             //si el usuario eligio desarrolladores de celulares
             if (set==2){
-                System.out.println("celulaes"); 
                 String nombre = JOptionPane.showInputDialog("Ingrese el nombre"); 
                 SetCelulares.add(nombre);  
             }
             //si el usuario eligio mostrar resultados
             if (set==3){
                 
-                //Se llevan a cabo las tareas 
-                System.out.println(SetJava);
+                //Se muestran los tres conjuntos
+                System.out.println("Desarrolladores de Java:"+SetJava);
+                System.out.println("Desarrolladores de Web:"+SetWeb);
+                System.out.println("Desarrolladores de Celulares:"+SetCelulares);
+                //Se calcula la in terseccion de web y celulares
                 interseccion_web_celulares=Interseccion(SetWeb,SetCelulares); 
+                //Se calcula los desarrolladores de Java pero no web
                 java_noWeb=Diferencia(SetJava,SetWeb); 
+                //Se calcula la union de Web y Celulares
                 union_web_celulares=Union(SetWeb,SetCelulares);
+                //Se calcula la interseccion de todos los conjuntos
                 interseccion_todos=Interseccion(SetJava,interseccion_web_celulares);
                 
                 //se muestran los resultados de los conjuntos de intersecciones y uniones
@@ -127,6 +120,7 @@ public class Control {
                 
                 //SetJava subconjunto de SetWeb?
                 boolean sub_conjunto = Subconjunto(SetWeb,SetJava);
+       
                 if(sub_conjunto==true){
                     System.out.println("Los desarrolladores de java son un subconjunto de los desarrolladores Web");
                 }
