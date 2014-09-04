@@ -1,0 +1,6 @@
+ORDEN DE METODO SUBCONJUNTO
+
+EL subconjunto implementa el metodo .containall
+este metodo recorre todo los elementos de un set
+mientras busca cada uno por toda la otra lista
+por ello el orden de esta funcion de f(n)=O(n^2)
